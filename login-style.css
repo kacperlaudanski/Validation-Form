@@ -1,0 +1,61 @@
+.singup-decoration{
+    background-image: url(public/lemon-g8e6b4b8aa_1920.jpg);
+}
+
+.login-form-container{
+    height:40vh;
+    margin-top:6em;
+    position: relative;
+}
+
+.login-input-group{
+    width:90%; 
+    height:40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.login-input-group input{
+    width:90%; 
+    height:40px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.login-button{
+    background-color: rgb(244,164,179);
+}
+
+.login-button:hover{
+    background-color: rgb(251,220,131);
+}
+
+.form-container small{
+    margin-top: 1em;
+    color:rgb(110, 110, 110);
+}
+
+.options{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.options a{
+    text-decoration: none;
+    font-size: .8rem;
+    color: rgb(244, 164, 179);
+}
+
+.options label{
+    font-size: .8rem;
+}
+
+.options a:hover{
+    text-decoration: underline;
+}

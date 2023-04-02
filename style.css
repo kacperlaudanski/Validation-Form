@@ -32,6 +32,11 @@ form{
     justify-content: space-around;
 }
 
+small a{
+    text-decoration: none;
+    color:rgb(243,131,91);
+}
+
 .input-group{
     position: relative;
 }
@@ -39,6 +44,7 @@ form{
 i{
     position: absolute;
     left:10px;
+    color: #c4c4c4;
 }
 
 .input-group small{
@@ -68,14 +74,17 @@ i{
 .form-container button{
     width:90%;
     height:50px;
-    background-color: rgb(251,198,118);
     border-radius:5px; 
     border:none; 
     cursor: pointer;
     transition: background-color .3s ease-in-out;
 }
 
-.form-container button:hover{
+.create-account-button{
+    background-color: rgb(251,198,118);
+}
+
+.create-account-button:hover{
     background-color: rgb(243,131,91);
 }
 
