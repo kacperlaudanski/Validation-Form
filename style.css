@@ -5,6 +5,20 @@
     font-family: 'Poppins', sans-serif;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  
+
 body{
     display: flex;
 }
@@ -16,6 +30,21 @@ form{
     display:flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.input-group{
+    position: relative;
+}
+
+i{
+    position: absolute;
+    left:10px;
+}
+
+.input-group small{
+   position: absolute;
+   margin-top:.3em;
+   color:rgb(219, 88, 88); 
 }
 
 .decoration{
@@ -66,4 +95,24 @@ form{
     outline: none;
     border:none;
 }
+
+.eye-icon{
+    left:82%;
+    cursor: pointer;
+}
+
+.correct{
+    border: 2px solid rgb(78, 181, 72); 
+}
+
+.error{
+    border: 2px solid rgb(219, 88, 88);
+}
+
+.hidden{
+    display:none !important; 
+}
+
+
+
 

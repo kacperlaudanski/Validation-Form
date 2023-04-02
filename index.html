@@ -17,26 +17,42 @@
     <div class="form-container">
        <h1>Create an account</h1>
        <form id="create-account-form">
-          <div class="input-container">
-            <i class="fa-solid fa-user"></i>
-            <input type="text" id="first-name" class="input" placeholder="First name">
-          </div>
-          <div class="input-container">
-            <i class="fa-solid fa-user"></i>
-            <input type="text" id="last-name" class="input" placeholder="Last name">
-          </div>
-          <div class="input-container">
-            <i class="fa-solid fa-envelope"></i>
-            <input type="email" id="email" class="input" placeholder="E-mail">
-          </div>
-          <div class="input-container">
-            <i class="fa-solid fa-lock"></i>
-            <input type="password" id="password" class="input" placeholder="Password">
-          </div>
-          <div class="input-container">
-            <i class="fa-solid fa-phone"></i>
-            <input type="number" id="phone-number" class="input" placeholder="Phone number">
-          </div>
+        <div class="input-group">
+            <div class="input-container">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="first-name" class="input" placeholder="First name" autocomplete="off">
+            </div>
+            <small class="hidden"></small>
+        </div>
+        <div class="input-group">
+            <div class="input-container">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="last-name" class="input" placeholder="Last name" autocomplete="off">
+            </div>
+            <small class="hidden"></small>
+        </div>
+        <div class="input-group">
+            <div class="input-container">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="email" class="input" placeholder="E-mail" autocomplete="off">
+            </div>
+            <small class="hidden"></small>
+        </div>
+        <div class="input-group">
+            <div class="input-container">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password" class="input" placeholder="Password">
+                <i class="fa-solid fa-eye eye-icon hidden" id="show-password"></i>
+            </div>
+            <small class="hidden"></small>
+        </div>
+        <div class="input-group">
+            <div class="input-container">
+                <i class="fa-solid fa-phone"></i>
+                <input type="number" id="phone-number" class="input" placeholder="Phone number">
+            </div>
+            <small class="hidden"></small>
+        </div>
           <button type="submit" id="create-account-button">Create an account</button>
        </form>
        <small>Already have an account ? <a href='#'>Sing in</a></small>
