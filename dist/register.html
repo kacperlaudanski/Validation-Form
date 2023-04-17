@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
     <link href="../style.css" rel="stylesheet" type="text/css">
-    <script src="bundle.js" defer></script>
+    <script src="bundle.js" defer type="module"></script>
     <script src="https://kit.fontawesome.com/a568e3a4aa.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -58,10 +58,10 @@
                 <i class="fa-solid fa-lock"></i>
                 <input 
                   type="password" 
-                  id="password" 
+                  id="register-password" 
                   class="input" 
                   placeholder="Password">
-                <i class="fa-solid fa-eye eye-icon hidden" id="show-password"></i>
+                <i class="fa-solid fa-eye eye-icon hidden" id="register-show-password"></i>
             </div>
             <small class="hidden"></small>
         </div>
@@ -79,7 +79,7 @@
             </div>
             <small class="hidden"></small>
         </div>
-          <button type="submit" id="create-account-button" class="create-account-button">Create an account</button>
+          <button type="submit" id="create-account-button" class="create-account-button" disabled>Create an account</button>
        </form>
        <small>Already have an account ? <a href='login.html'>Log in</a></small>
     </div>
