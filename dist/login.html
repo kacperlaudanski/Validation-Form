@@ -16,7 +16,7 @@
 <body>
     <div class="form-container">
         <h1>Hey, hello 👋</h1>
-        <small>Enter the information you entered while registering.</small>
+        <small class="message">Enter the information you entered while registering.</small>
         <form class="login-form-container">
            <div class="login-input-group">
             <i class="fa-solid fa-envelope"></i>
@@ -35,7 +35,9 @@
               placeholder="Password">
               <i class="fa-solid fa-eye eye-icon" id="login-show-password"></i>
            </div>
-           <button type="submit" id="login-button" class="login-button">Log in</button>
+           <small class="login-error-message"></small>
+           
+           <button type="submit" id="login-btn" class="login-button">Log in</button>
            <div class="options">
             <div class="signup-input-group">
                 <input type="checkbox" class="remember-me-input" id="remember-me-input">

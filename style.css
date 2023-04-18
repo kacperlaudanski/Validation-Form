@@ -37,6 +37,10 @@ small a{
     color:rgb(243,131,91);
 }
 
+a:hover{
+    text-decoration: underline;
+}
+
 .input-group{
     position: relative;
 }
@@ -121,7 +125,6 @@ i{
 .hidden{
     display:none !important; 
 }
-
 
 
 

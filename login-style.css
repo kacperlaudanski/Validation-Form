@@ -18,13 +18,15 @@
     border-radius: 5px;
 }
 
+
 .login-input-group input{
     width:90%; 
-    height:40px;
+    height:35px;
     border: none;
     border-radius: 5px;
     outline: none;
 }
+
 
 .login-button{
     background-color: rgb(244,164,179);
@@ -34,9 +36,14 @@
     background-color: rgb(251,220,131);
 }
 
-.form-container small{
+.message{
     margin-top: 1em;
     color:rgb(110, 110, 110);
+}
+
+.login-error-message{
+    margin-top:.3em;
+    color:rgb(219, 88, 88); 
 }
 
 .options{

@@ -1,11 +1,10 @@
 import { initializeApp } from "firebase/app";
 import {
-  getDocs,
-  collection,
-  getFirestore,
-  addDoc,
-  getDoc,
-} from "firebase/firestore";
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
@@ -22,6 +21,10 @@ const loginEmail = document.getElementById("login-email");
 const loginPassword = document.getElementById("login-password");
 const showLoginPasswordButton = document.getElementById("login-show-password");
 const rememberMeCheckbox = document.getElementById("remember-me-input");
+const loginButton = document.getElementById("login-btn");
+const logoutButton = document.getElementById("logout-button");
+const user = document.getElementById("user");
+const loginErrorMessage = document.querySelector(".login-error-message");
 
 const firebaseConfig = {
   apiKey: "AIzaSyD1eLl6bG1DBVsy16tfhQmObteVMGNsAn0",
@@ -38,19 +41,43 @@ let passwordValidationResult;
 let phoneNumberValidationResult;
 
 initializeApp(firebaseConfig);
-const db = getFirestore();
-const colRef = collection(db, "users");
+const auth = getAuth();
 
 function register() {
-  addDoc(colRef, {
-    email: registerEmail.value,
-    firstname: firstName.value,
-    lastname: lastName.value,
-    password: registerPassword.value,
-    phonenumber: phoneNumber.value,
-  })
+  createUserWithEmailAndPassword(
+    auth,
+    registerEmail.value,
+    registerPassword.value
+  )
     .then(() => {
-      createAccountForm.reset();
+      window.location.href = "register-successful.html";
+    })
+    .catch(() => {
+      window.location.href = "error.html";
+    });
+}
+
+function logIn() {
+  signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value)
+    .then((cred) => {
+      localStorage.setItem("user", cred.user.email);
+      window.location.href = "logged.html?user=" + cred.user.uid;
+    })
+    .catch((err) => {
+      if (loginErrorMessage) {
+        loginErrorMessage.textContent = "Invalid email adress or password";
+      }
+    });
+}
+if (user) {
+  user.textContent = localStorage.getItem("user");
+}
+
+function logOut() {
+  signOut(auth)
+    .then(() => {
+      localStorage.removeItem("user")
+      window.location.href = 'login.html'
     })
     .catch((err) => console.log(err));
 }
@@ -92,21 +119,6 @@ function checkValidation(input, condition) {
   }
   return validationResult;
 }
-
-  rememberMeCheckbox.addEventListener('change', (event) => {
-    if(rememberMeCheckbox.checked){
-      localStorage.setItem('email', loginEmail.value)
-      localStorage.setItem('password', loginPassword.value)
-      localStorage.setItem('checkbox', event.target.checked)
-    }else{
-      localStorage.removeItem('email')
-      localStorage.removeItem('password')
-      localStorage.removeItem('checkbox')
-    }
-  })
-  loginEmail.value = localStorage.getItem('email')
-  loginPassword.value = localStorage.getItem('password')
-  rememberMeCheckbox.checked = localStorage.getItem('checkbox')
 
 function showPassword(password) {
   if (password.value.length === 0) return;
@@ -195,9 +207,43 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 });
 
-loginPassword.addEventListener('input', () => {
-  passwordPreviewHandler(loginPassword, showLoginPasswordButton)
-})
-showLoginPasswordButton.addEventListener('click', () => {
-  showPassword(loginPassword)
-})
+if (
+  loginEmail &&
+  loginPassword &&
+  rememberMeCheckbox &&
+  showLoginPasswordButton
+) {
+  rememberMeCheckbox.addEventListener("change", (event) => {
+    if (rememberMeCheckbox.checked) {
+      localStorage.setItem("email", loginEmail.value);
+      localStorage.setItem("password", loginPassword.value);
+      localStorage.setItem("checkbox", event.target.checked);
+    } else {
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
+      localStorage.removeItem("checkbox");
+    }
+  });
+
+  loginEmail.value = localStorage.getItem("email");
+  loginPassword.value = localStorage.getItem("password");
+  rememberMeCheckbox.checked = localStorage.getItem("checkbox");
+
+  loginPassword.addEventListener("input", () => {
+    passwordPreviewHandler(loginPassword, showLoginPasswordButton);
+  });
+
+  showLoginPasswordButton.addEventListener("click", () => {
+    showPassword(loginPassword);
+  });
+
+  if (loginButton) {
+    loginButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      logIn();
+    });
+  }
+  if (logoutButton) {
+    logoutButton.addEventListener("click", logOut);
+  }
+}
