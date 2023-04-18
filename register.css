@@ -1,0 +1,39 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.register-input-group {
+  position: relative;
+}
+
+.input-container input {
+  width: 80%;
+  height: 35px;
+  outline: none;
+  border: none;
+}
+
+.create-account-button {
+  background-color: rgb(251, 198, 118);
+}
+
+.create-account-button:hover {
+  background-color: rgb(243, 131, 91);
+}
+
+.correct {
+  border: 2px solid rgb(78, 181, 72);
+}
+
+.error {
+  border: 2px solid rgb(219, 88, 88);
+}

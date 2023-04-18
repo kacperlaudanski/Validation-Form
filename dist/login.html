@@ -1,52 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Validation Form</title>
-    <link href="../style.css" rel="stylesheet" type="text/css">
-    <link href="../login-style.css" rel="stylesheet" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+    <link href="../login-style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
     <script src="bundle.js" defer type="module"></script>
-    <script src="https://kit.fontawesome.com/a568e3a4aa.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <script
+      src="https://kit.fontawesome.com/a568e3a4aa.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <div class="form-container">
-        <h1>Hey, hello 👋</h1>
-        <small class="message">Enter the information you entered while registering.</small>
-        <form class="login-form-container">
-           <div class="login-input-group">
-            <i class="fa-solid fa-envelope"></i>
-            <input 
-              type="text" 
-              class="input" 
-              id="login-email" 
-              placeholder="E-mail">
-           </div>
-           <div class="login-input-group">
-            <i class="fa-solid fa-lock"></i>
-            <input 
-              type="password" 
-              class="input" 
-              id="login-password" 
-              placeholder="Password">
-              <i class="fa-solid fa-eye eye-icon" id="login-show-password"></i>
-           </div>
-           <small class="login-error-message"></small>
-           
-           <button type="submit" id="login-btn" class="login-button">Log in</button>
-           <div class="options">
-            <div class="signup-input-group">
-                <input type="checkbox" class="remember-me-input" id="remember-me-input">
-                <label>Remember me</label>
-            </div>
-             <a href="register.html">Don't have an account ?</a>
-           </div>
-        </form>
+      <h1>Hey, hello 👋</h1>
+      <small class="message"
+        >Enter the information you entered while registering.</small
+      >
+      <form class="login-form-container">
+        <div class="login-input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input
+            type="text"
+            class="input"
+            id="login-email"
+            placeholder="E-mail"
+          />
+        </div>
+        <div class="login-input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input
+            type="password"
+            class="input"
+            id="login-password"
+            placeholder="Password"
+          />
+          <i
+            class="fa-solid fa-eye eye-icon hidden"
+            id="login-show-password"
+          ></i>
+        </div>
+        <small class="login-error-message"></small>
+        <button type="submit" id="login-btn" class="login-button">
+          Log in
+        </button>
+        <div class="options">
+          <div class="signup-input-group">
+            <input
+              type="checkbox"
+              class="remember-me-input"
+              id="remember-me-input"
+            />
+            <label>Remember me</label>
+          </div>
+          <a href="register.html">Don't have an account ?</a>
+        </div>
+      </form>
     </div>
     <div class="decoration singup-decoration"></div>
-</body>
+  </body>
 </html>

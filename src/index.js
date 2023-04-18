@@ -76,8 +76,8 @@ if (user) {
 function logOut() {
   signOut(auth)
     .then(() => {
-      localStorage.removeItem("user")
-      window.location.href = 'login.html'
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
     })
     .catch((err) => console.log(err));
 }
@@ -205,38 +205,36 @@ window.addEventListener("DOMContentLoaded", (event) => {
       });
     }
   }
-});
+  if (
+    loginEmail &&
+    loginPassword &&
+    rememberMeCheckbox &&
+    showLoginPasswordButton
+  ) {
+    rememberMeCheckbox.addEventListener("change", (event) => {
+      if (rememberMeCheckbox.checked) {
+        localStorage.setItem("email", loginEmail.value);
+        localStorage.setItem("password", loginPassword.value);
+        localStorage.setItem("checkbox", event.target.checked);
+      } else {
+        localStorage.removeItem("email");
+        localStorage.removeItem("password");
+        localStorage.removeItem("checkbox");
+      }
+    });
 
-if (
-  loginEmail &&
-  loginPassword &&
-  rememberMeCheckbox &&
-  showLoginPasswordButton
-) {
-  rememberMeCheckbox.addEventListener("change", (event) => {
-    if (rememberMeCheckbox.checked) {
-      localStorage.setItem("email", loginEmail.value);
-      localStorage.setItem("password", loginPassword.value);
-      localStorage.setItem("checkbox", event.target.checked);
-    } else {
-      localStorage.removeItem("email");
-      localStorage.removeItem("password");
-      localStorage.removeItem("checkbox");
-    }
-  });
+    loginEmail.value = localStorage.getItem("email");
+    loginPassword.value = localStorage.getItem("password");
+    rememberMeCheckbox.checked = localStorage.getItem("checkbox");
 
-  loginEmail.value = localStorage.getItem("email");
-  loginPassword.value = localStorage.getItem("password");
-  rememberMeCheckbox.checked = localStorage.getItem("checkbox");
+    loginPassword.addEventListener("input", () => {
+      passwordPreviewHandler(loginPassword, showLoginPasswordButton);
+    });
 
-  loginPassword.addEventListener("input", () => {
-    passwordPreviewHandler(loginPassword, showLoginPasswordButton);
-  });
-
-  showLoginPasswordButton.addEventListener("click", () => {
-    showPassword(loginPassword);
-  });
-
+    showLoginPasswordButton.addEventListener("click", () => {
+      showPassword(loginPassword);
+    });
+  }
   if (loginButton) {
     loginButton.addEventListener("click", (event) => {
       event.preventDefault();
@@ -246,4 +244,4 @@ if (
   if (logoutButton) {
     logoutButton.addEventListener("click", logOut);
   }
-}
+});

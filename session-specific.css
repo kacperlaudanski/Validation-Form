@@ -17,8 +17,8 @@ h1 {
   font-size: 2.5rem;
 }
 
-h2{
-  margin-top:1em;
+h2 {
+  margin-top: 1em;
 }
 
 a {
@@ -46,7 +46,8 @@ a {
   margin: 4em 0 4em;
 }
 
-.logout-link, .login-link{
+.logout-link,
+.login-link {
   background-color: #f96370;
 }
 
@@ -64,7 +65,7 @@ a {
   transition: background-color linear 0.3s;
 }
 
-.login-link:hover{
-    background-color: #be4a53;
-    transition: background-color linear 0.3s;
+.login-link:hover {
+  background-color: #be4a53;
+  transition: background-color linear 0.3s;
 }

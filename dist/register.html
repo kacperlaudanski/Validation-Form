@@ -1,87 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Validation Form</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
-    <link href="../style.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+    <link href="../register.css" rel="stylesheet" type="text/css" />
     <script src="bundle.js" defer type="module"></script>
-    <script src="https://kit.fontawesome.com/a568e3a4aa.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <script
+      src="https://kit.fontawesome.com/a568e3a4aa.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <div class="decoration"></div>
     <div class="form-container">
-       <h1>Create an account 🚀</h1>
-       <form id="create-account-form">
-        <div class="input-group">
-            <div class="input-container">
-                <i class="fa-solid fa-user"></i>
-                <input 
-                  type="text"
-                  id="first-name" 
-                  class="input" 
-                  placeholder="First name" 
-                  autocomplete="off">
-            </div>
-            <small class="hidden"></small>
+      <h1>Create an account 🚀</h1>
+      <form id="create-account-form">
+        <div class="register-input-group">
+          <div class="input-container">
+            <i class="fa-solid fa-user"></i>
+            <input
+              type="text"
+              id="first-name"
+              class="input"
+              placeholder="First name"
+              autocomplete="off"
+            />
+          </div>
+          <small class="register-error-message hidden"></small>
         </div>
-        <div class="input-group">
-            <div class="input-container">
-                <i class="fa-solid fa-user"></i>
-                <input 
-                  type="text" 
-                  id="last-name" 
-                  class="input" 
-                  placeholder="Last name" 
-                  autocomplete="off">
-            </div>
-            <small class="hidden"></small>
+        <div class="register-input-group">
+          <div class="input-container">
+            <i class="fa-solid fa-user"></i>
+            <input
+              type="text"
+              id="last-name"
+              class="input"
+              placeholder="Last name"
+              autocomplete="off"
+            />
+          </div>
+          <small class="register-error-message hidden"></small>
         </div>
-        <div class="input-group">
-            <div class="input-container">
-                <i class="fa-solid fa-envelope"></i>
-                <input 
-                  type="email" 
-                  id="email" 
-                  class="input" 
-                  placeholder="E-mail" 
-                  autocomplete="off">
-            </div>
-            <small class="hidden"></small>
+        <div class="register-input-group">
+          <div class="input-container">
+            <i class="fa-solid fa-envelope"></i>
+            <input
+              type="email"
+              id="email"
+              class="input"
+              placeholder="E-mail"
+              autocomplete="off"
+            />
+          </div>
+          <small class="register-error-message hidden"></small>
         </div>
-        <div class="input-group">
-            <div class="input-container">
-                <i class="fa-solid fa-lock"></i>
-                <input 
-                  type="password" 
-                  id="register-password" 
-                  class="input" 
-                  placeholder="Password">
-                <i class="fa-solid fa-eye eye-icon hidden" id="register-show-password"></i>
-            </div>
-            <small class="hidden"></small>
+        <div class="register-input-group">
+          <div class="input-container">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              type="password"
+              id="register-password"
+              class="input"
+              placeholder="Password"
+            />
+            <i
+              class="fa-solid fa-eye eye-icon hidden"
+              id="register-show-password"
+            ></i>
+          </div>
+          <small class="register-error-message hidden"></small>
         </div>
-        <div class="input-group">
-            <div class="input-container">
-                <i class="fa-solid fa-phone"></i>
-                <input 
-                  type="number" 
-                  id="phone-number" 
-                  class="input" 
-                  placeholder="Phone number" 
-                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)"
-                  minlength="5" 
-                  maxlength="10">
-            </div>
-            <small class="hidden"></small>
+        <div class="register-input-group">
+          <div class="input-container">
+            <i class="fa-solid fa-phone"></i>
+            <input
+              type="number"
+              id="phone-number"
+              class="input"
+              placeholder="Phone number"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)"
+              minlength="5"
+              maxlength="10"
+            />
+          </div>
+          <small class="register-error-message hidden"></small>
         </div>
-          <button type="submit" id="create-account-button" class="create-account-button" disabled>Create an account</button>
-       </form>
-       <small>Already have an account ? <a href='login.html'>Log in</a></small>
+        <button
+          type="submit"
+          id="create-account-button"
+          class="create-account-button"
+          disabled
+        >
+          Create an account
+        </button>
+      </form>
+      <small>Already have an account ? <a href="login.html">Log in</a></small>
     </div>
-</body>
+  </body>
 </html>
