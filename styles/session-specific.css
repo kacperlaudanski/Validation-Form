@@ -69,3 +69,17 @@ a {
   background-color: #be4a53;
   transition: background-color linear 0.3s;
 }
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  a {
+    width: 50%;
+  }
+
+  .image {
+    width: 40%;
+  }
+}

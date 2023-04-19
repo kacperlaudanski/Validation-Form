@@ -1,141 +1,32 @@
-import { initializeApp } from "firebase/app";
+import { checkValidation } from "./checkValidation.js";
+import { passwordPreviewHandler, showPassword } from "./passwordHandler.js";
 import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
+  logIn,
+  logOut,
+  register,
+  loginEmail,
+  loginPassword,
+  registerEmail,
+  registerPassword,
+} from "./registration&login.js";
 
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
-const registerEmail = document.getElementById("email");
-const registerPassword = document.getElementById("register-password");
 const phoneNumber = document.getElementById("phone-number");
-const createAccountForm = document.getElementById("create-account-form");
 const createAccountButton = document.getElementById("create-account-button");
 const showRegisterPasswordButton = document.getElementById(
   "register-show-password"
 );
-
-const loginEmail = document.getElementById("login-email");
-const loginPassword = document.getElementById("login-password");
 const showLoginPasswordButton = document.getElementById("login-show-password");
 const rememberMeCheckbox = document.getElementById("remember-me-input");
 const loginButton = document.getElementById("login-btn");
 const logoutButton = document.getElementById("logout-button");
-const user = document.getElementById("user");
-const loginErrorMessage = document.querySelector(".login-error-message");
 
-const firebaseConfig = {
-  apiKey: "AIzaSyD1eLl6bG1DBVsy16tfhQmObteVMGNsAn0",
-  authDomain: "test-project-cc102.firebaseapp.com",
-  projectId: "test-project-cc102",
-  storageBucket: "test-project-cc102.appspot.com",
-  messagingSenderId: "931261221876",
-  appId: "1:931261221876:web:c18a132d376fbb96f847a1",
-};
 let firstNameValidationResult;
 let lastNameValidationResult;
 let emailValidationResult;
 let passwordValidationResult;
 let phoneNumberValidationResult;
-
-initializeApp(firebaseConfig);
-const auth = getAuth();
-
-function register() {
-  createUserWithEmailAndPassword(
-    auth,
-    registerEmail.value,
-    registerPassword.value
-  )
-    .then(() => {
-      window.location.href = "register-successful.html";
-    })
-    .catch(() => {
-      window.location.href = "error.html";
-    });
-}
-
-function logIn() {
-  signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value)
-    .then((cred) => {
-      localStorage.setItem("user", cred.user.email);
-      window.location.href = "logged.html?user=" + cred.user.uid;
-    })
-    .catch((err) => {
-      if (loginErrorMessage) {
-        loginErrorMessage.textContent = "Invalid email adress or password";
-      }
-    });
-}
-if (user) {
-  user.textContent = localStorage.getItem("user");
-}
-
-function logOut() {
-  signOut(auth)
-    .then(() => {
-      localStorage.removeItem("user");
-      window.location.href = "login.html";
-    })
-    .catch((err) => console.log(err));
-}
-
-function checkValidation(input, condition) {
-  const parentElement = input.parentElement;
-  const grandParentElement = parentElement.parentElement;
-  const errorContent = grandParentElement.children[1];
-  let errorMessage;
-  let validationResult = false;
-  if (!input.value.match(condition)) {
-    input.parentElement.classList.add("error");
-    errorContent.classList.remove("hidden");
-    if (input.id === "first-name" || input.id === "last-name") {
-      errorMessage = "Letters only";
-    } else if (input.id === "email") {
-      errorMessage = "Invalid e-mail";
-    } else if (input.id === "register-password") {
-      errorMessage =
-        "Password: 8+ chars, 1 uppercase, 1 lowercase, 1 digit, 1 special char.";
-    } else if (input.id === "phone-number") {
-      if (input.value.length < 5) {
-        errorMessage = "Too short number";
-      }
-    }
-    errorContent.textContent = errorMessage;
-    validationResult = false;
-  } else {
-    input.parentElement.classList.add("correct");
-    input.parentElement.classList.remove("error");
-    errorContent.classList.add("hidden");
-    validationResult = true;
-  }
-  if (input.value.length === 0) {
-    input.parentElement.classList.remove("error");
-    input.parentElement.classList.remove("correct");
-    errorContent.classList.add("hidden");
-    validationResult = false;
-  }
-  return validationResult;
-}
-
-function showPassword(password) {
-  if (password.value.length === 0) return;
-  if (password.type === "password") {
-    password.type = "text";
-  } else {
-    password.type = "password";
-  }
-}
-
-function passwordPreviewHandler(password, button) {
-  if (password.value.length > 0) {
-    button.classList.remove("hidden");
-  } else {
-    button.classList.add("hidden");
-  }
-}
 
 function undisabledButton() {
   if (
