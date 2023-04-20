@@ -35,7 +35,7 @@ i {
 
 .decoration {
   width: 60%;
-  background-image: url(../public/orange-g88ce5c5c0_1920.jpg);
+  background-image: url(../../img/orange-g88ce5c5c0_1920.jpg);
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -99,5 +99,14 @@ i {
 
   .form-container {
     width: 100%;
+  }
+
+  .input-container,
+  .login-input-group {
+    width: 100%;
+  }
+
+  .form-container button{
+    width:100%;
   }
 }

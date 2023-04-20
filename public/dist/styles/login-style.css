@@ -1,5 +1,5 @@
 .singup-decoration {
-  background-image: url(../public/lemon-g8e6b4b8aa_1920.jpg);
+  background-image: url(../img/lemon-g8e6b4b8aa_1920.jpg);
 }
 
 .login-form-container {
@@ -51,4 +51,10 @@
 
 .options a:hover {
   text-decoration: underline;
+}
+
+@media (max-width:1100px){
+  .options{
+    width:100%;
+  }
 }
