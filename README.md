@@ -16,7 +16,9 @@ https://validation-form-669ce.web.app/
 # Installation 
 
 <code>$ git clone https://github.com/kacperlaudanski/Validation-Form.git</code> </br> 
+
 <code>npm install</code> </br> 
+
 <code>npm run dev</code> </br> 
 
 # Screenshots 
