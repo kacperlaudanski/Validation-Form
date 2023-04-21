@@ -99,6 +99,7 @@ i {
 
   .form-container {
     width: 100%;
+    padding: 1em; 
   }
 
   .input-container,
